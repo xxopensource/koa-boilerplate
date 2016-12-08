@@ -23,8 +23,10 @@ exports = module.exports = function (app, options) {
         }
 
         const model = require(filePath);
-        models[model.modelName] = model;
-        debug(model.modelName);
+        if (typeof model.modelName === 'string') {
+            models[model.modelName] = model;
+            debug(model.modelName);
+        }
     });
 
     app.models = models;

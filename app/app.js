@@ -35,6 +35,9 @@ app.use(Middlewares.router(__dirname+'/controllers'));
 // services
 app.use(Middlewares.service(app, __dirname+'/services'));
 
+//static
+app.use(Static(__dirname + '/public'));
+
 app.on('error', function (err, ctx) {
     console.error(err);
 });

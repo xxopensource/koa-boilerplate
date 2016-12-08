@@ -17,6 +17,8 @@
     
     // 与controller同名做特殊处理
     export async function todo() { }
+    or 
+    export async function index() { }
         
   </td>
   <td>
@@ -116,6 +118,7 @@
     "koa-logger": "^1.3.0",// log请求信息
     "koa-onerror": "^1.3.1",// 输出详细错误
     "koa-router": "^5.4.0",// 路由
+    "koa-static": "^2.0.0", // Koa static file serving middleware
     "mongoose": "^4.7.1",// mongoodb orm
     "pluralize": "^3.0.0"// 单复数处理
   },
