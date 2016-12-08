@@ -106,10 +106,13 @@ function _setRoute(router, config, options) {
     let method = (_routerVerb.indexOf(config.method) > -1) ? [config.method] : ['get', 'post'];
     let path = config.routePath.join('/');
 
-    // 处理复数or同名 /abc/abcs => /abcs, /abc/abc => /abc
+    // 处理复数or同名orIndex /abc/abcs => /abcs, /abc/abc => /abc, /abc/index => /abc
     path = path.split('/').reduce(function (result, value) {
         let arr = result.split('/');
         let last = arr.pop();
+        if (value === 'index') {
+            return result;
+        }
         if (last === pluralize(value, 1)) {
             arr.push(value);
             return arr.join('/');
@@ -119,14 +122,6 @@ function _setRoute(router, config, options) {
 
     // 加入当前路由
     paths.push(path);
-
-    config.routePath = path.split('/');
-
-    // 如果当前路由是以index结尾，则把其父路由也加入路由
-    if (config.routePath.slice(-1)[0] === 'index') {
-        let parpath = config.routePath.slice(0, -1);
-        paths.push(parpath.join('/'));
-    }
 
     // 如果有regular则加入regular路由
     if (config.regular) {

@@ -24,6 +24,7 @@ mongoose.connect('mongodb://localhost:27017/koa-boilerplate', function (err) {
         process.exit(1);
     }
 });
+mongoose.Promise = global.Promise;
 
 // models
 app.use(Middlewares.model(app, __dirname+'/models'));
