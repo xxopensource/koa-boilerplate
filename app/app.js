@@ -5,6 +5,8 @@ import bodyparser from 'koa-bodyparser'
 import logger from 'koa-logger'
 import conditional from 'koa-conditional-get'
 import etag from 'koa-etag'
+import Static from 'koa-static'
+import compress from 'koa-compress'
 import mongoose from 'mongoose'
 import * as Middlewares from './middlewares'
 
@@ -12,6 +14,7 @@ const app = new Koa();
 
 // middlewares
 onerror(app);
+app.use(convert(compress()));
 app.use(convert(bodyparser()));
 app.use(convert(logger()));
 app.use(convert(conditional()));
@@ -36,7 +39,7 @@ app.use(Middlewares.router(__dirname+'/controllers'));
 app.use(Middlewares.service(app, __dirname+'/services'));
 
 //static
-app.use(Static(__dirname + '/public'));
+app.use(convert(Static(__dirname + '/public')));
 
 app.on('error', function (err, ctx) {
     console.error(err);

@@ -112,6 +112,7 @@
     "glob": "^7.1.1",// 查找文件
     "koa": "^2.0.0",// koa core
     "koa-bodyparser": "^2.3.0", // 用于自动解析request.body
+    "koa-compress": "^1.0.9",// 数据压缩
     "koa-conditional-get": "^1.0.3", // koa-etag依赖
     "koa-convert": "^1.2.0",// yield 语法co转换，koa将不支持yield中间件， async/await 调用yield也需要转化下
     "koa-etag": "^2.1.1",// etag缓存支持
