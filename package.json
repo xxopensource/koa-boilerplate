@@ -21,6 +21,7 @@
     "koa-router": "^5.4.0",
     "koa-static": "^2.0.0",
     "mongoose": "^4.7.1",
+    "mongoose-schema-extend": "^0.2.2",
     "pluralize": "^3.0.0"
   },
   "devDependencies": {

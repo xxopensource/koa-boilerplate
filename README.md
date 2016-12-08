@@ -121,6 +121,7 @@
     "koa-router": "^5.4.0",// 路由
     "koa-static": "^2.0.0", // Koa static file serving middleware
     "mongoose": "^4.7.1",// mongoodb orm
+    "mongoose-schema-extend": "^0.2.2", // Schema Extend
     "pluralize": "^3.0.0"// 单复数处理
   },
   "devDependencies": {

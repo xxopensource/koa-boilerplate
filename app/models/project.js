@@ -1,8 +1,7 @@
-import mongoose, {
-    Schema
-} from 'mongoose';
+import mongoose from 'mongoose';
+import BaseSchema from './baseSchema';
 
-const schema = new Schema({
+const schema = BaseSchema.extend({
     kind: String,
     name: String,
 });
